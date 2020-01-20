@@ -1,3 +1,3 @@
-# oscars
+# The Academy Award goes to...
 
-## vote on who wins the Oscars. 
+Choose who you think wins the Oscars. 
