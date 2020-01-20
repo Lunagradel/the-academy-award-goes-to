@@ -1,0 +1,4 @@
+type Mutation {
+  createNominee(film: String!, persons: [String]!): Nominee,
+  createCategorywNominees(title: String, nominees: [NomineeInput], isFilmNominated: Boolean!): Category
+}

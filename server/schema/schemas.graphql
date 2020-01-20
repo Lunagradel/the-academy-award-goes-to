@@ -1,0 +1,30 @@
+type Nominee {
+    id: ID!,
+    film: String,
+    persons: [String]!
+}
+
+type Category {
+    id: ID!,
+    title: String!,
+    nominees: [Nominee],
+    winner: Nominee,
+    isFilmNominated: Boolean!
+}
+
+type User {
+    id: ID!,
+    name: String!,
+    votes: Vote
+}
+
+type Vote {
+    category: ID!,
+    willWin: ID!,
+    shouldWin: ID
+}
+
+input NomineeInput {
+    film: String,
+    persons: [String]!
+}
