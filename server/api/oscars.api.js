@@ -1,10 +1,13 @@
 import Nominee from '../models/Nominee';
 import Category from '../models/Category';
+import Vote from '../models/Vote';
+import User from '../models/User';
+
 
 export function findCategories() {
 
   return Category.find();
-  
+
 }
 
 export function createCategorywNominees(data) {
@@ -21,6 +24,18 @@ export function createCategorywNominees(data) {
           return res;
         }
       });
+    }
+  });
+}
+
+export function createUserwVotes(data) {
+  const {name, votes} = data;
+  Vote.insertMany(votes, (err, docs) => {
+    if(!err) {
+      User.create({name: name, votes: docs}, (err, res) => {
+        console.log(res);
+        return res;
+      })
     }
   });
 }

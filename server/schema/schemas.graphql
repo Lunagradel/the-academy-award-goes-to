@@ -28,3 +28,9 @@ input NomineeInput {
     film: String,
     persons: [String]!
 }
+
+input VoteInput {
+    category: ID!,
+    willWin: ID!,
+    shouldWin: ID
+}

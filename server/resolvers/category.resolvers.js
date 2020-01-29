@@ -10,7 +10,7 @@ export default {
         const category = await OscarsApi.createCategorywNominees(args);
         console.log("resolver => ", category);
         
-        return category
+        return category;
       }
   },
 

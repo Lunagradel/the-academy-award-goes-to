@@ -1,11 +1,14 @@
 import categoryResolvers from './category.resolvers';
+import voteResolvers from './vote.resolvers';
 
 export default {
     Query: {
-        ...categoryResolvers.queries
+        ...categoryResolvers.queries,
+        ...voteResolvers.queries
     },
 
     Mutation: {
-        ...categoryResolvers.mutations
+        ...categoryResolvers.mutations,
+        ...voteResolvers.mutations
     },
   }
