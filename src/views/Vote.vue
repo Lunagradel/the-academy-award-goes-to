@@ -9,7 +9,7 @@
         :key="index"
         v-bind:category="cat"
         v-bind:vote="votes[index]"
-
+        @clickWillWin="handleVote"
          />
     </div>
 
@@ -37,14 +37,31 @@ export default {
   },
 
   methods: {
+
       handleCreateUser() {
+
           this.$apollo.mutate({
               mutation: createUserwVotes,
               variables: {
                   name: this.name,
-                  votes: [{category: '5e260c085157926f0f031a17', willWin: '5e260c085157926f0f031a17'}]
+                  votes: this.votes
               }
           })
+      },
+
+      handleVote(categoryID, nomineeID, isWillWin) {
+          const updVotes = _.cloneDeep(this.votes);
+          const voteIdx = updVotes.findIndex((vote) => vote.category === categoryID);
+          
+          if (voteIdx >= 0) {
+              if (isWillWin) {
+                  updVotes[voteIdx].willWin = updVotes[voteIdx].willWin === nomineeID ? null : nomineeID;
+              } else {
+                  updVotes[voteIdx].shouldWin = updVotes[voteIdx].shouldWin === nomineeID ? null : nomineeID;
+              }
+          }
+
+          this.votes = updVotes;
       }
   },
 
