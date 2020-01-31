@@ -20,8 +20,8 @@
 <script>
 // @ is an alias to /src
 import Category from '@/components/Category.vue';
-import { GETCATEGORIES } from '../gql/queries/categories.queries';
-import { createUserwVotes } from '../gql/mutations/user.mutations';
+import { GETCATEGORIES } from '../gql/queries/oscars.queries';
+import { createUserwVotes } from '../gql/mutations/oscars.mutations';
 import _ from 'lodash';
 
 export default {

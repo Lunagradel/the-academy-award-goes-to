@@ -10,12 +10,26 @@ export function findCategories() {
 
 }
 
+export function findCategorieswWinners() {
+
+  return Category.find({winner: {$ne: null}});
+
+}
+
+
+
+export function findUsers() {
+
+  return User.find();
+
+}
+
 export function createCategorywNominees(data) {
 
-  const {title, nominees, isFilmNominated} = data;
+  const {title, nominees, isFilmNominated, winner} = data;
   Nominee.insertMany(nominees, (err, docs) => {
     if(!err) {
-      Category.create({title: title, nominees: docs, isFilmNominated: isFilmNominated}, (err, res) => {
+      Category.create({title: title, nominees: docs, isFilmNominated: isFilmNominated, winner: winner}, (err, res) => {
         if(err) {
           return err;
         } else {
@@ -25,6 +39,14 @@ export function createCategorywNominees(data) {
         }
       });
     }
+  });
+}
+
+export function setWinner(data) {
+  const {categoryID, nomineeID} = data;
+  Category.findOneAndUpdate({_id: categoryID}, {winner: nomineeID}, (err, doc) => {
+    console.log(doc);
+    return doc;
   });
 }
 

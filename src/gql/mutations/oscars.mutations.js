@@ -11,3 +11,11 @@ export const createUserwVotes = gql`
     }
   }
 `;
+
+export const updCategorywWinner = gql`
+  mutation setWinner($categoryID: ID!, $nomineeID: ID!) {
+    updateCategorywWinner(categoryID: $categoryID, nomineeID: $nomineeID) {
+      id
+    }
+  }
+`;

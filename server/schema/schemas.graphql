@@ -8,14 +8,14 @@ type Category {
     id: ID!,
     title: String!,
     nominees: [Nominee],
-    winner: Nominee,
+    winner: ID,
     isFilmNominated: Boolean!
 }
 
 type User {
     id: ID!,
     name: String!,
-    votes: Vote
+    votes: [Vote]
 }
 
 type Vote {

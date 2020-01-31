@@ -1,3 +1,5 @@
 type Query {
-    categories: [Category]
+    categories: [Category],
+    categoriesWithWinners: [Category],
+    users: [User],
 }

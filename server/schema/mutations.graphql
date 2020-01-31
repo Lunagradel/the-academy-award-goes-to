@@ -1,5 +1,9 @@
 type Mutation {
   createNominee(film: String!, persons: [String]!): Nominee,
-  createCategorywNominees(title: String, nominees: [NomineeInput], isFilmNominated: Boolean!): Category,
-  addUserwVotes(name: String! votes: [VoteInput]): User
+  
+  createCategorywNominees(title: String, nominees: [NomineeInput], isFilmNominated: Boolean!, winner: ID): Category,
+  
+  addUserwVotes(name: String! votes: [VoteInput]): User,
+
+  updateCategorywWinner(categoryID: ID!, nomineeID: ID!): Category
 }

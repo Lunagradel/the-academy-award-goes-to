@@ -2,7 +2,8 @@ import * as OscarsApi from '../api/oscars.api';
 
 export default {
   queries: {
-      categories: () => OscarsApi.findCategories()
+      categories: () => OscarsApi.findCategories(),
+      categoriesWithWinners: () => OscarsApi.findCategorieswWinners()
   },
 
   mutations: {
@@ -11,7 +12,12 @@ export default {
         console.log("resolver => ", category);
         
         return category;
-      }
+      },
+    async updateCategorywWinner(parent, args) {
+      const cat = await OscarsApi.setWinner(args);
+
+      return cat;
+    }
   },
 
   subscriptions: {},

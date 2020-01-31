@@ -2,7 +2,7 @@ import * as OscarsApi from '../api/oscars.api';
 
 export default {
   queries: {
-    //   categories: () => OscarsApi.findCategories()
+      users: () => OscarsApi.findUsers()
   },
 
   mutations: {

@@ -4,8 +4,7 @@
     <div>
         <div v-for="nominee in category.nominees" :key="nominee.id">
             <div class="t">
-                <i v-bind:class="vote && vote.willWin === nominee.id ? 'icon ion-ios-trophy' : 'icon ion-ios-trophy-outline'" @click="handleUpdateVote(nominee.id, true)" />
-                <i v-bind:class="vote && vote.shouldWin === nominee.id ? 'icon ion-ios-heart' : 'icon ion-ios-heart-outline'" @click="handleUpdateVote(nominee.id, false)" />
+                <i v-bind:class="category.winner === nominee.id ? 'icon ion-ios-trophy' : 'icon ion-ios-trophy-outline'" @click="handleUpdateWinner(nominee.id, true)" />
             </div>
             <div>
                 <p v-if="category.isFilmNominated">{{nominee.film}}</p>
@@ -22,15 +21,14 @@
 
 <script>
 export default {
-  name: 'Category',
+  name: 'CategoryWinners',
   props: {
     category: Object,
-    vote: Object
   },
 
   methods: {
-      handleUpdateVote(nomineeId, willWin) {
-          this.$emit("clickWillWin", this.category.id, nomineeId, willWin);
+      handleUpdateWinner(nomineeId) {
+          this.$emit("clickWinner", this.category.id, nomineeId);
       }
   }
 }
