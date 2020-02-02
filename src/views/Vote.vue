@@ -1,20 +1,37 @@
 <template>
-  <div>
-      Vote here
-    <input v-model="name" placeholder="username" />
+    <div class="wrapper">
+        <div class="ballot">
+            <div class="username-container">
+                <p>Name:</p>
+                <input v-model="name" />
+            </div>
 
-    <div v-if="categories && categories.length > 0">
-        <Category 
-        v-for="(cat, index) in categories"
-        :key="index"
-        v-bind:category="cat"
-        v-bind:vote="votes[index]"
-        @clickWillWin="handleVote"
-         />
+            <div class="rules">
+                <div class="rule">
+                    <i class="icon ion-ios-trophy"></i>
+                    <p>= Vote for who <span>will</span> win the Oscar.</p>
+                </div>
+                <div class="rule">
+                    <i class="icon ion-ios-heart"></i>
+                    <p>= Vote for who <span>should</span> win the Oscar. (Optional)</p>
+                </div>
+            </div>
+
+            <div class="categories-container" v-if="categories && categories.length > 0">
+                <Category 
+                v-for="(cat, index) in categories"
+                :key="index"
+                v-bind:category="cat"
+                v-bind:vote="votes[index]"
+                @clickWillWin="handleVote"
+                />
+            </div>
+            <div class="btn-container">
+                <div class="primary-btn" @click="handleCreateUser">Vote</div>
+                <div class="error-txt">One <i class="icon ion-ios-trophy"></i> must be selected for each category.</div>
+            </div>
+        </div>
     </div>
-
-    <button @click="handleCreateUser">Vote</button>
-  </div>
 </template>
 
 <script>

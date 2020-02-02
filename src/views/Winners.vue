@@ -1,16 +1,20 @@
 <template>
-  <div>
+  <div class="wrapper">
+    <div class="ballot">
+      <div class="title">
+        <h1>Winners</h1>
+      </div>
 
-    <div v-if="categories && categories.length > 0">
+      <div class="categories-container" v-if="categories && categories.length > 0">
         <CategoryWinners
         v-for="(cat, index) in categories"
         :key="index"
         v-bind:category="cat"
         @clickWinner="handleWinner"
          />
-        
-    </div>
+      </div>
 
+    </div>
   </div>
 </template>
 
