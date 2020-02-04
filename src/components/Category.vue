@@ -2,7 +2,7 @@
   <div class="category">
     <h3 class="category-title">{{ category.title }}</h3>
     <div class="nominees">
-        <div class="nominee" v-for="nominee in category.nominees" :key="nominee.id">
+        <div class="nominee" v-bind:class="vote && (vote.willWin === nominee.id ? vote.shouldWin === nominee.id ? 'active-nom-both' : 'active-nom-will-win' : vote.shouldWin === nominee.id ? 'active-nom-should-win' : '')" v-for="nominee in category.nominees" :key="nominee.id">
             <div class="vote-icons">
                 <i v-bind:class="vote && vote.willWin === nominee.id ? 'icon ion-ios-trophy' : 'icon ion-ios-trophy-outline'" @click="handleUpdateVote(nominee.id, true)" />
                 <i v-bind:class="vote && vote.shouldWin === nominee.id ? 'icon ion-ios-heart' : 'icon ion-ios-heart-outline'" @click="handleUpdateVote(nominee.id, false)" />

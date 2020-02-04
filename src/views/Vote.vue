@@ -28,7 +28,7 @@
             </div>
             <div class="btn-container">
                 <div class="primary-btn" @click="handleCreateUser">Vote</div>
-                <div class="error-txt">One <i class="icon ion-ios-trophy"></i> must be selected for each category.</div>
+                <div class="error-txt" v-if="this.errTxt" v-html="this.errTxt"></div>
             </div>
         </div>
     </div>
@@ -57,6 +57,12 @@ export default {
 
       handleCreateUser() {
 
+          this.errTxt = '';
+
+          if (!this.handleValidate()) {
+              return;
+          }
+
           this.$apollo.mutate({
               mutation: createUserwVotes,
               variables: {
@@ -64,6 +70,23 @@ export default {
                   votes: this.votes
               }
           })
+      },
+
+      handleValidate() {
+          if (this.name === '') {
+            this.errTxt = 'A name must be given.'
+            return false;
+          }
+
+          const checkVotes = _.cloneDeep(this.votes);
+          const willWins = checkVotes.filter((vote) => vote.willWin !== null);
+
+          if (checkVotes.length !== willWins.length) {
+              this.errTxt = 'One <i class="icon ion-ios-trophy"></i> must be selected for each category.'
+              return false;
+          } 
+
+          return true;
       },
 
       handleVote(categoryID, nomineeID, isWillWin) {
@@ -92,7 +115,8 @@ export default {
 
   data: () => ({
       name: '',
-      votes: []
+      votes: [],
+      errTxt: ''
   })
 }
 </script>
