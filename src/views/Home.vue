@@ -1,28 +1,16 @@
 <template>
   <div class="wrapper">
 
-    <h1>The Academy Award goes to...</h1>
-    <!-- <p>Make your bet now on who will take home the Oscars 2020. Woop so exciting.</p> -->
+    <div class="txt-container">
+      <h1>The Academy Award goes to...</h1>
+      <p>Well...Who do you think?</p>
+    </div>
 
     <div class="btn-container">
-      <router-link to="/vote"><div class="primary-btn">Vote here!</div></router-link>
+      <router-link to="/vote"><div class="primary-btn vote-btn">Vote!</div></router-link>
     </div>
 
     <div class="ballot">
-      <!-- <div class="title">
-          <h1>The Academy Award goes to...</h1>
-      </div> -->
-
-      <!-- <div class="users-container" v-if="users && users.length > 0">
-        <h2>Contestants</h2>
-        <div class="users">
-            <p class="user" v-for="(user, idx) in users" :key="idx">
-              {{user.name}}
-            </p>
-        </div>
-      </div> -->
-
-
       <div class="score-container" v-if="this.usersScoreData && this.usersScoreData.length > 0">
         <div class="awards-given-container">
           <div class="awards-given">

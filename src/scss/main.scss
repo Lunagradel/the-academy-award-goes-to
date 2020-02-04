@@ -15,12 +15,32 @@ p {
     margin: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 .wrapper {
     width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    .txt-container {
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p, h1 {
+            text-align: center;
+        }
+
+    }
+
+    .btn-container {
+        margin: 60px 0 30px 0;
+    }
 
     .ballot {
         background-color: #ffffff;
@@ -90,9 +110,27 @@ p {
 
                 .nominees {
 
+                    .active-nom-will-win, .active-nom-should-win, .active-nom-both {
+                        border-radius: 5px;
+                    }
+
+                    .active-nom-will-win {
+                        background-color: #f5ebcf;
+                    }
+
+                    .active-nom-should-win {
+                        background-color: #f5dbcf;
+                    }
+
+                    .active-nom-both {
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,219,207,1) 65%);
+                    }
+
                     .nominee {
                         display: flex;
-                        padding: 10px 0;
+                        // padding: 10px 0;
+                        margin: 7px 0;
+                        padding: 5px 10px;
 
                         .vote-icons {
                             font-size: 20px;
@@ -217,8 +255,17 @@ p {
         padding: 7px 25px;
         color: #ffffff;
         display: inline-block;
-        border-radius: 25px;
+        border-radius: 35px;
         cursor: pointer;
         background-color: #ad975c;
+        -webkit-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.69);
+        -moz-box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.69);
+        box-shadow: 0px 0px 4px -1px rgba(0,0,0,0.69);
+    }
+
+    .vote-btn {
+        font-size: 35px;
+        background-color: #fdfdfd;
+        color: #4a4028;
     }
 }
