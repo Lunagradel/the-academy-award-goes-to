@@ -6,18 +6,12 @@
       <p>Well...Who do you think?</p>
     </div>
 
-    <div class="btn-container">
-      <router-link to="/vote"><div class="primary-btn vote-btn">Vote!</div></router-link>
+    <div class="btn-container" v-if="Date.now() < new Date('2020-02-09')">
+      <router-link to="/vote"><div class="vote-btn">Vote!</div></router-link>
     </div>
 
     <div class="ballot">
       <div class="score-container" v-if="this.usersScoreData && this.usersScoreData.length > 0">
-        <div class="awards-given-container">
-          <div class="awards-given">
-            <p>Oscars awarded</p> 
-            <p>{{categoriesWithWinners.length}} / 22</p>
-          </div>
-        </div>
         <table>
           <tr>
             <th width="10%">#</th>
@@ -25,7 +19,7 @@
             <th><i class="icon ion-ios-trophy"></i></th>
             <th><i class="icon ion-ios-heart"></i></th>
           </tr>
-          <tr v-for="(scoreData, idx) in this.usersScoreData" :key="idx" >
+          <tr v-for="(scoreData, idx) in this.usersScoreData" :key="idx" @click="handleUserClick(scoreData.userID)">
             <td class="place"><span>{{idx + 1}}</span></td>
             <td>{{scoreData.userName}}</td>
             <td>{{scoreData.correctWillWins}} / {{categoriesWithWinners.length}}</td>
@@ -90,14 +84,18 @@ export default {
 
               });
 
-              updUsersScoreData.push({userName: user.name, correctWillWins: setCorrectWillWins, correctShouldWins: setCorrectShouldWins});
+              updUsersScoreData.push({userName: user.name, userID: user.id, correctWillWins: setCorrectWillWins, correctShouldWins: setCorrectShouldWins});
             });
           
-          const updUsersScoreDataSorted = _.orderBy(updUsersScoreData, [(user) => user.correctWillWins, (user) => user.userName], ['desc', 'asc']);
+          const updUsersScoreDataSorted = _.orderBy(updUsersScoreData, [(user) => user.correctWillWins, (user) => user.userName.toLowerCase()], ['desc', 'asc']);
           
           this.usersScoreData = updUsersScoreDataSorted;
       }
 
+    },
+
+    handleUserClick(id) {
+      this.$router.push({name: 'user', params: {id: id}});
     }
   },
 

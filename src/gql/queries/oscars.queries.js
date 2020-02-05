@@ -39,3 +39,17 @@ export const GETUSERS = gql`
   }
 }
 `
+
+export const GETUSER = gql`
+  query User($id: ID!) {
+  user(id: $id) {
+    id
+    name
+    votes {
+      category
+      willWin
+      shouldWin
+    }
+  }
+}
+`

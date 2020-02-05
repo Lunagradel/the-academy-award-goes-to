@@ -22,7 +22,7 @@
                 v-for="(cat, index) in categories"
                 :key="index"
                 v-bind:category="cat"
-                v-bind:vote="votes[index]"
+                v-bind:vote="votes.find((v) => v.category === cat.id)"
                 @clickWillWin="handleVote"
                 />
             </div>
@@ -69,6 +69,10 @@ export default {
                   name: this.name,
                   votes: this.votes
               }
+          }).then((data) => {
+              this.$router.push({path: '/'});
+          }).catch((err) => {
+              this.errTxt = err;
           })
       },
 

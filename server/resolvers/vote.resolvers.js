@@ -2,7 +2,17 @@ import * as OscarsApi from '../api/oscars.api';
 
 export default {
   queries: {
-      users: () => OscarsApi.findUsers()
+      users: () => OscarsApi.findUsers(),
+      user: (parent, args, t, tt) => {
+        console.log('parent', parent);
+        console.log('args',args);
+        console.log(t);
+        console.log(tt);
+        
+        
+        return OscarsApi.findUserById(args)
+      }
+      
   },
 
   mutations: {

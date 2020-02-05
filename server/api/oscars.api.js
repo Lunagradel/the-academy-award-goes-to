@@ -16,7 +16,10 @@ export function findCategorieswWinners() {
 
 }
 
-
+export function findUserById(data) {
+  const {id} = data;
+  return User.findById(id);
+}
 
 export function findUsers() {
 
