@@ -8,6 +8,7 @@
     "web:build": "vue-cli-service build",
     "server:dev": "nodemon",
     "server:build": "cross-env BABEL_ENV='node' babel ./server --out-dir ./build --copy-files",
+    "postinstall": "npm run web:build",
     "start": "node ./server/index.js"
   },
   "dependencies": {
