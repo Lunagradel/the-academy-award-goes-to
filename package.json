@@ -2,7 +2,6 @@
   "name": "oscars",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "web:dev": "vue-cli-service serve",
     "web:build": "vue-cli-service build",
