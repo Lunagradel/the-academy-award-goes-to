@@ -20,7 +20,7 @@ const apolloOptions = {
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModify: false })
   .then(() => {
     return new ApolloServer(apolloOptions).listen(
-      parseInt(process.env.SERVER_PORT)
+      {port: process.env.PORT || parseInt(process.env.SERVER_PORT)}
     )
   })
   .then(({ url, subscriptionsUrl }) => {
