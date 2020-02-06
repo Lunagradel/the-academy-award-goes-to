@@ -15,17 +15,19 @@ const schema = mergeTypes(
 const apolloOptions = {
   typeDefs: gql(schema),
   resolvers,
-  cors: {
-		origin: '*',			// <- allow request from all domains
-    credentials: true
-  }
 };
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModify: false })
   .then(() => {
-    return new ApolloServer(apolloOptions).listen(
+    const apolloServer = new ApolloServer(apolloOptions).listen(
       {port: process.env.PORT || parseInt(process.env.SERVER_PORT)}
     )
+    apolloServer.applyMiddleWare({cors: {
+      origin: '*',			// <- allow request from all domains
+      credentials: true
+    }})
+
+    return apolloServer;
   })
   .then(({ url, subscriptionsUrl }) => {
     console.log(`🚀 Server ready at ${url}`);
