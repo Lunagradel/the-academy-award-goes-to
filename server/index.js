@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModif
     const apolloServer = new ApolloServer(apolloOptions).listen(
       {port: process.env.PORT || parseInt(process.env.SERVER_PORT)}
     )
-    apolloServer.applyMiddleWare({cors: {
+    apolloServer.applyMiddleware({cors: {
       origin: '*',			// <- allow request from all domains
       credentials: true
     }})
