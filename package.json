@@ -29,6 +29,7 @@
     "merge-graphql-schemas": "^1.7.6",
     "mongoose": "^5.8.9",
     "nodemon": "^2.0.2",
+    "serve-static": "^1.14.1",
     "vue": "^2.6.10",
     "vue-apollo": "^3.0.0-beta.11",
     "vue-router": "^3.1.3"
