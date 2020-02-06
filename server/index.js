@@ -12,9 +12,16 @@ const schema = mergeTypes(
   fileLoader(resolve(__dirname, './schema'))
 );
 
+
 const apolloOptions = {
   typeDefs: gql(schema),
   resolvers,
+  introspection: true,
+  playground: true,
+  cors: {
+    origin: '*',			// <- allow request from all domains
+    credentials: true
+  }
 };
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModify: false })
@@ -22,10 +29,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModif
     const apolloServer = new ApolloServer(apolloOptions).listen(
       {port: process.env.PORT || parseInt(process.env.SERVER_PORT)}
     )
-    apolloServer.applyMiddleware({cors: {
-      origin: '*',			// <- allow request from all domains
-      credentials: true
-    }})
 
     return apolloServer;
   })
