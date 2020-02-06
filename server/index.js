@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import { resolve } from 'path';
 import { mergeTypes, fileLoader } from 'merge-graphql-schemas';
 import { ApolloServer, gql } from 'apollo-server-express';
+import cors from 'cors';
 import resolvers from './resolvers';
 
 const express = require('express');
@@ -31,6 +32,8 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModif
       origin: '*',			// <- allow request from all domains
       credentials: true
     }});
+
+    app.use(cors());
     
     app.listen(
       {port: process.env.PORT || parseInt(process.env.SERVER_PORT)}
