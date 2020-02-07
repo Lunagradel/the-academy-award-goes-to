@@ -29,6 +29,31 @@ export default {
     voteOne: Object,
     voteTwo: Object
   },
+
+  method: {
+    t() {
+      // vote.willWin === nominee.id ? vote.shouldWin === nominee.id ? 'active-nom-both' : 'active-nom-will-win' : vote.shouldWin === nominee.id ? 'active-nom-should-win' : ''
+     
+      // 'active-will-win-both-users'
+      // 'active-will-win-user-one'
+      // 'active-will-win-user-two'
+
+      // 'active-should-win-both-users'
+      // 'active-should-win-user-one'
+      // 'active-should-win-user-two'
+
+      // 'active-both-win-both-users'
+      // 'active-both-win-user-one'
+      // 'active-both-win-user-two'
+
+      // 'active-will-win-user-one-should-win-user-two'
+      // 'active-will-win-user-two-should-win-user-one'
+      // 'active-will-win-user-one-both-win-user-two'
+      // 'active-will-win-user-two-both-win-user-one'
+
+      
+    }
+  }
 }
 </script>
 
