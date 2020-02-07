@@ -4,6 +4,11 @@
     "routes": {
       "/**": "index.html"
     },
+    "proxies": {
+        "/graphql/": {
+          "origin": "https://the-oscar-goes-to.herokuapp.com/graphql/"
+        }
+    },
     "headers": {
         "/": {
           "Cache-Control": "no-store, no-cache"
