@@ -8,5 +8,16 @@
         "/graphql/": {
           "origin": "https://the-oscar-goes-to.herokuapp.com/graphql/"
         }
-      }
+    },
+    "headers": {
+        "/": {
+          "Cache-Control": "no-store, no-cache"
+        },
+        "/assets/**": {
+          "Cache-Control": "public, max-age=512000"
+        },
+        "/assets/webfonts/*": {
+          "Access-Control-Allow-Origin": "*"
+        }
+    }
   }
