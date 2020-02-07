@@ -3,5 +3,10 @@
     "clean_urls": true,
     "routes": {
       "/**": "index.html"
-    }
+    },
+    "proxies": {
+        "/graphql/": {
+          "origin": "https://the-oscar-goes-to.herokuapp.com/graphql/"
+        }
+      }
   }
