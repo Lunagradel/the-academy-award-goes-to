@@ -6,7 +6,7 @@
       <p>Well...Who do you think?</p>
     </div>
 
-    <div class="btn-container" v-if="Date.now() < new Date('2020-02-09')">
+    <div class="btn-container">
       <router-link to="/vote"><div class="vote-btn">Vote!</div></router-link>
     </div>
 
