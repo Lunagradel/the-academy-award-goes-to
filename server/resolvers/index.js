@@ -1,5 +1,5 @@
-import categoryResolvers from './category.resolvers';
-import voteResolvers from './vote.resolvers';
+import categoryResolvers from './category.resolvers.js';
+import voteResolvers from './vote.resolvers.js';
 
 export default {
     Query: {
