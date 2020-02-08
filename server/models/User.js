@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { VoteSchema } from './Vote.js';
+import { VoteSchema } from './Vote';
 
 const UserSchema = new mongoose.Schema({
     name: String,

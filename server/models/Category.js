@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { NomineeSchema } from './Nominee.js';
+import { NomineeSchema } from './Nominee';
 
 const CategorySchema = new mongoose.Schema({
     title: String,

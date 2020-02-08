@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import apollo from 'apollo-server';
 import merge from 'merge-graphql-schemas';
 import path from 'path';
-import resolvers from './resolvers/index.js';
+import resolvers from './resolvers/';
 
 const { ApolloServer, gql } = apollo;
 const { mergeTypes, fileLoader } = merge;
