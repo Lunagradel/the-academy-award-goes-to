@@ -16,7 +16,8 @@ const schema = mergeTypes(
 
 const apolloOptions = {
   typeDefs: gql(schema),
-  resolvers
+  resolvers,
+  introspection: true
 };
 
 const app = express();
