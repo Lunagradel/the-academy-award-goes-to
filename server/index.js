@@ -33,7 +33,7 @@ app.get('*', (request, response) => {
 
 const apolloServer = new ApolloServer(apolloOptions);
 
-apolloServer.applyMiddleware({app, path: '/', cors: {origin: '*'}});
+apolloServer.applyMiddleware({app, path: '/graphql', cors: {origin: '*'}});
 
 app.listen(process.env.PORT || parseInt(process.env.SERVER_PORT), () => {
   mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useFindAndModify: false });
