@@ -1,7 +1,7 @@
-import Nominee from '../models/Nominee';
-import Category from '../models/Category';
-import Vote from '../models/Vote';
-import User from '../models/User';
+import Nominee from '../models/Nominee.js';
+import Category from '../models/Category.js';
+import Vote from '../models/Vote.js';
+import User from '../models/User.js';
 
 
 export function findCategories() {

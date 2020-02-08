@@ -1,4 +1,4 @@
-import * as OscarsApi from '../api/oscars.api';
+import * as OscarsApi from '../api/oscars.api.js';
 
 export default {
   queries: {
