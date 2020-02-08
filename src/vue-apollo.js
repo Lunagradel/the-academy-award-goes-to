@@ -14,7 +14,7 @@ const httpEndpoint = process.env.VUE_APP_GRAPHQL_HTTP || 'http://localhost:4000/
 // Config
 const defaultOptions = {
   // You can use `https` for secure connection (recommended in production)
-  httpEndpoint: process.env.VUE_APP_GRAPHQL_HTTP_URL,
+  httpEndpoint: 'https://oscars-engine.herokuapp.com/',
   // You can use `wss` for secure connection (recommended in production)
   // Use `null` to disable subscriptions
   wsEndpoint: null,
