@@ -27,7 +27,8 @@
                 />
             </div>
             <div class="btn-container">
-                <div class="primary-btn" @click="handleCreateUser">Vote</div>
+                <div v-if="!this.loading" class="primary-btn" @click="handleCreateUser">Vote</div>
+                <div v-else class="primary-btn">Voting...</div>
                 <div class="error-txt" v-if="this.errTxt" v-html="this.errTxt"></div>
             </div>
         </div>
@@ -63,6 +64,8 @@ export default {
               return;
           }
 
+          this.loading = true;
+
           this.$apollo.mutate({
               mutation: createUserwVotes,
               variables: {
@@ -70,9 +73,11 @@ export default {
                   votes: this.votes
               }
           }).then((data) => {
+              this.loading = false;
               this.$router.push({path: '/'});
           }).catch((err) => {
               this.errTxt = err;
+              this.loading = false;
           })
       },
 
@@ -120,7 +125,8 @@ export default {
   data: () => ({
       name: '',
       votes: [],
-      errTxt: ''
+      errTxt: '',
+      loading: false
   })
 }
 </script>
