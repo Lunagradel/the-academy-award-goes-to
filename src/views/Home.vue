@@ -11,7 +11,7 @@
     </div>
 
     <div class="ballot">
-      <div class="score-container" v-if="this.usersScoreData && this.usersScoreData.length > 0">
+      <div class="score-container">
         <table>
           <tr>
             <th width="10%">#</th>
