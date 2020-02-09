@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="ballot">
-            <div class="username-container">
+            <div class="username-container compare-users">
                 <p>{{compareUserOne && compareUserOne.name}}</p>
                 <p>{{compareUserTwo && compareUserTwo.name}}</p>
             </div>
