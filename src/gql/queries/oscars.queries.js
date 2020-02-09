@@ -53,3 +53,17 @@ export const GETUSER = gql`
   }
 }
 `
+
+export const GETCOMPAREUSERS = gql`
+  query CompareUsers($compareIds: [ID]) {
+  compareUsers(compareIds: $compareIds) {
+    id
+    name
+    votes {
+      category
+      willWin
+      shouldWin
+    }
+  }
+}
+`

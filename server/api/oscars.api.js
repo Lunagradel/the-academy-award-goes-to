@@ -21,6 +21,11 @@ export function findUserById(data) {
   return User.findById(id);
 }
 
+export function findUsersById(data) {
+  const {compareIds} = data;
+  return User.find({_id: {$in: compareIds}});
+}
+
 export function findUsers() {
 
   return User.find();

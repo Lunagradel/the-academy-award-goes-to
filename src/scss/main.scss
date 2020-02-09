@@ -76,6 +76,16 @@ a {
             }
         }
 
+        .compare-users {
+            justify-content: space-between;
+            padding: 0 10px;
+            margin: 30px 0;
+
+            p {
+                border-bottom: solid 2px #000000;
+            }
+        }
+
         .rules {
             margin-bottom: 50px;
             .rule {
@@ -124,6 +134,69 @@ a {
 
                     .nom-winner {
                         border: solid 2px #866d28;
+                    }
+                    
+                    .active-will-win-both-users {
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,235,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,235,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+
+                    .active-will-win-user-one {
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,235,207,1) 25%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 75%, rgba(255,255,255,1) 100%);
+                    }
+
+                    .active-will-win-user-two{
+                        background: rgb(255,255,255);
+                        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 50%, rgba(245,235,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+                    .active-should-win-both-users{
+                        background: rgb(245,219,207);
+                        background: linear-gradient(90deg, rgba(245,219,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,219,207,1) 100%);
+                    }
+                    .active-should-win-user-one {
+                        background: rgb(245,219,207);
+                        background: linear-gradient(90deg, rgba(245,219,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 75%, rgba(255,255,255,1) 100%);
+                    }
+                    .active-should-win-user-two {
+                        background: rgb(255,255,255);
+                        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,219,207,1) 100%);
+                    }
+                    .active-both-win-both-users{
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+                    .active-both-win-user-one{
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 75%, rgba(255,255,255,1) 100%);
+                    }
+                    .active-both-win-user-two{
+                        background: rgb(255,255,255);
+                        background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+                    .active-will-win-user-one-should-win-user-two {
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,235,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,219,207,1) 100%);
+                    }
+                    .active-will-win-user-two-should-win-user-one{
+                        background: rgb(245,219,207);
+                        background: linear-gradient(90deg, rgba(245,219,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,235,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+                    .active-will-win-user-one-both-win-user-two{
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,235,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+                    .active-will-win-user-two-both-win-user-one{
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,235,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }   
+                    .active-should-win-user-one-both-win-user-two{
+                        background: rgb(245,219,207);
+                        background: linear-gradient(90deg, rgba(245,219,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,235,207,1) 100%);
+                    }
+                    .active-should-win-user-two-both-win-user-one{
+                        background: rgb(245,235,207);
+                        background: linear-gradient(90deg, rgba(245,235,207,1) 0%, rgba(245,219,207,1) 25%, rgba(255,255,255,1) 50%, rgba(245,219,207,1) 75%, rgba(245,219,207,1) 100%);
                     }
 
                     .nominee {
@@ -249,6 +322,26 @@ a {
                 p:nth-of-type(2) {
                     font-size: 35px;
                 }
+            }
+        }
+            
+        .compare-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+
+            p {
+                font-size: 18px;
+                font-weight: 800;
+            }
+
+            div {
+                padding: 5px 10px;
+                background-color: #ad975c;
+                color: #ffffff;
+                border-radius: 5px;
+                margin-left: 10px;
+                cursor: pointer;
             }
         }
     }

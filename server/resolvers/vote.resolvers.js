@@ -3,15 +3,10 @@ import * as OscarsApi from '../api/oscars.api';
 export default {
   queries: {
       users: () => OscarsApi.findUsers(),
-      user: (parent, args, t, tt) => {
-        console.log('parent', parent);
-        console.log('args',args);
-        console.log(t);
-        console.log(tt);
-        
-        
+      user: (parent, args) => {
         return OscarsApi.findUserById(args)
-      }
+      },
+      compareUsers: (parent, args) => OscarsApi.findUsersById(args)
       
   },
 
