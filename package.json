@@ -28,7 +28,7 @@
     "graphql": "^14.5.8",
     "lodash": "^4.17.15",
     "merge-graphql-schemas": "^1.7.6",
-    "mongoose": "^5.8.9",
+    "mongoose": "^8.8.3",
     "nodemon": "^2.0.2",
     "serve-static": "^1.14.1",
     "vue": "^2.6.10",
